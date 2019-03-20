@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="container">
+  <div class="row col-12">
+    {% for product in products %}
+      <div class="ml-2 mt-5" style='border:solid;'>
+        <p class='text-center'>{{product}}</p>
+        <p>{{product.short_description}}</p>
+        <p class='text-center' ><a href="{% url 'detail' id=product.id %}" >Подробнее</a></p>
+        <p class='text-center' ><a href="detail/{{product.id}}" >Подробнее</a></p>
+      </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

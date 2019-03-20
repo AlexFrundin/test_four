@@ -1,0 +1,15 @@
+{%extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+    <div class="pull-3"></div>
+    <div class="col-3">
+      <h2 class="text-center">{{product}}</h2>
+      <p>{{product.description|safe}}</p>
+      <h7 class="text-center">{{product.price}}</h7>
+    </div>
+    </div>
+
+</div>
+{% endblock %}

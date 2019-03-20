@@ -1,0 +1,22 @@
+
+
+
+
+{% extends 'base.html' %}
+{%block title %}
+  Profiles, {{user}}
+{% endblock %}
+{% block content %}
+{% for name in users %}
+  <p>
+    <a href="{% url 'profiles' name=name %}">
+      Перейти к {{name}}
+    </a>
+  </p>
+{% endfor %}
+{% if user %}
+  <p>Hello, {{user}}! </p>
+{% else %}
+  <p>Hello, user!</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>
+  <button type="button" name="button" id='id_button'>Ajax</button>
+  <input type="text" id='id_id'>
+  <button type="button" name="button" id='id_button2'>AjaxDetail</button>
+</p>
+{% endblock %}
+
+{%block extra_script%}
+<script>
+  var all = document.getElementById('id_button')
+  var detail = document.getElementById('id_button2')
+  var value = document.getElementById('id_id')
+  function start(url){
+    $.ajax({
+      url: url,
+      type: 'GET',
+      success: function(data){
+        console.log(data);
+      }
+    })
+  }
+  all.onclick = function(){
+    let url_all = 'http://127.0.0.1:8000/drf/all?token='
+    let token = value.value
+    // 'asdfhgyerityoertp'
+    value.value = ''
+    url_all = url_all+token+"&"
+    start(url_all)
+  }
+  detail.onclick = function(){
+    var url_detail = 'http://127.0.0.1:8000/drf/detail/'
+    var id = value.value
+    url_detail = url_detail+id
+    start(url_detail)
+  }
+</script>
+{% endblock %}
